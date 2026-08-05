@@ -15,5 +15,24 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+vim.g.clipboard = {
+  name = "wl-clipboard",
+  copy = {
+    ["+"] = "wl-copy",
+    ["*"] = "wl-copy",
+  },
+  paste = {
+    ["+"] = "wl-paste -n",
+    ["*"] = "wl-paste -n",
+  },
+  cache_enabled = 0,
+}
+
+-- ensure you still want unnamedplus behavior:
+vim.opt.clipboard = "unnamedplus"
+
 require "lazy_setup"
 require "polish"
+
+-- old-style vim folding
+vim.opt.foldmethod = "manual"
