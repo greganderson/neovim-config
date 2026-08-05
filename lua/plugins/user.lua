@@ -47,10 +47,12 @@ return {
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
-      require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
       -- add more custom luasnip configuration such as filetype extend or custom snippets
       local luasnip = require "luasnip"
       luasnip.filetype_extend("javascript", { "javascriptreact" })
+
+      -- include the default astronvim config that calls the setup call
+      require "astronvim.plugins.configs.luasnip"(plugin, opts)
     end,
   },
 
@@ -84,12 +86,6 @@ return {
     end,
   },
   {
-    "barrett-ruth/live-server.nvim",
-    build = "npm add -g live-server",
-    cmd = { "LiveServerStart", "LiveServerStop" },
-    config = true,
-  },
-  {
     "m4xshen/smartcolumn.nvim",
     opts = {
       colorcolumn = "140",
@@ -112,12 +108,6 @@ return {
     opts = {
       -- Your settings go here
     },
-  },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
   },
   {
     "christoomey/vim-tmux-navigator",
